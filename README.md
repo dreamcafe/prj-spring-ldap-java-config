@@ -1,0 +1,1 @@
+# prj-spring-ldap-java-config
