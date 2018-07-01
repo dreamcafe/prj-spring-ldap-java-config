@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Configuration monitorInterval="30">
+    <Properties>
+        <Property name="LOG_PATH" value="./log" />
+        <Property name="LOG_FILE_NAME" value="sljc" />
+        <Property name="PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] [%c] - %msg%n"/>
+    </Properties>
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout>
+                <Pattern>${PATTERN}</Pattern>
+            </PatternLayout>
+        </Console>
+
+        <RollingFile name="RollingFile">
+            <FileName>${LOG_PATH}/${LOG_FILE_NAME}.log</FileName>
+            <FilePattern>${LOG_PATH}/${LOG_FILE_NAME}-%i.log</FilePattern>
+            <PatternLayout>
+                <Pattern>${PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <OnStartupTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="5" />
+        </RollingFile>
+
+        <Async name="Async">
+            <AppenderRef ref="STDOUT"/>
+            <AppenderRef ref="RollingFile"/>
+        </Async>
+    </Appenders>
+
+    <Loggers>
+        <AsyncLogger name = "org.springframework" level="DEBUG" additivity="false" includeLocation="true">
+            <AppenderRef ref="Async"/>
+        </AsyncLogger>
+
+        <AsyncRoot level="INFO" includeLocation="true">
+            <AppenderRef ref="Async"/>
+        </AsyncRoot>
+    </Loggers>
+
+</Configuration>

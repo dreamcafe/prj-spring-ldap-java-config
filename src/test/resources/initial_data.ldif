@@ -1,0 +1,50 @@
+dn: ou=people,dc=dreamcafe,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: people
+
+dn: ou=groups,dc=dreamcafe,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: groups
+
+dn: ou=alternative-accounts,dc=dreamcafe,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: alternative-account
+
+dn: uid=000001,ou=people,dc=dreamcafe,dc=org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Will Smith
+sn: Smith
+uid: 000001
+userPassword: password
+
+dn: uid=000002,ou=people,dc=dreamcafe,dc=org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Alan Parker
+sn: Parker
+uid: 000002
+userPassword: password
+
+dn: uid=conn,ou=alternative-accounts,dc=dreamcafe,dc=org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Connection User
+sn: Service
+uid: conn
+userPassword: password
+
+dn: cn=admin,ou=groups,dc=dreamcafe,dc=org
+objectclass: top
+objectclass: groupOfNames
+cn: admin
+member: uid=000001,ou=people,dc=dreamcafe,dc=org
