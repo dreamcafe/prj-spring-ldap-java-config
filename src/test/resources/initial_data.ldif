@@ -1,19 +1,35 @@
-dn: ou=people,dc=dreamcafe,dc=org
+dn: dc=Dreamcafe,dc=Org
+objectclass: top
+objectclass: domain
+objectclass: extensibleObject
+dc: Dreamcafe
+
+dn: ou=People,dc=Dreamcafe,dc=Org
 objectclass: top
 objectclass: organizationalUnit
-ou: people
+ou: People
 
-dn: ou=groups,dc=dreamcafe,dc=org
+dn: ou=Alternative Accounts,ou=People,dc=Dreamcafe,dc=Org
 objectclass: top
 objectclass: organizationalUnit
-ou: groups
+ou: Alternative Accounts
 
-dn: ou=alternative-accounts,dc=dreamcafe,dc=org
+dn: ou=Groups,dc=Dreamcafe,dc=Org
 objectclass: top
 objectclass: organizationalUnit
-ou: alternative-account
+ou: Groups
 
-dn: uid=000001,ou=people,dc=dreamcafe,dc=org
+dn: ou=Applications,ou=Groups,dc=Dreamcafe,dc=Org
+objectclass: top
+objectclass: organizationalUnit
+ou: Applications
+
+dn: ou=EQD,ou=Applications,ou=Groups,dc=Dreamcafe,dc=Org
+objectclass: top
+objectclass: organizationalUnit
+ou: EQD
+
+dn: uid=000001,ou=People,dc=Dreamcafe,dc=Org
 objectclass: top
 objectclass: person
 objectclass: organizationalPerson
@@ -23,7 +39,7 @@ sn: Smith
 uid: 000001
 userPassword: password
 
-dn: uid=000002,ou=people,dc=dreamcafe,dc=org
+dn: uid=000002,ou=People,dc=Dreamcafe,dc=Org
 objectclass: top
 objectclass: person
 objectclass: organizationalPerson
@@ -33,18 +49,34 @@ sn: Parker
 uid: 000002
 userPassword: password
 
-dn: uid=conn,ou=alternative-accounts,dc=dreamcafe,dc=org
+dn: uid=000003,ou=People,dc=Dreamcafe,dc=Org
 objectclass: top
 objectclass: person
 objectclass: organizationalPerson
 objectclass: inetOrgPerson
-cn: Connection User
-sn: Service
-uid: conn
+cn: John Flint
+sn: Flint
+uid: 000003
 userPassword: password
 
-dn: cn=admin,ou=groups,dc=dreamcafe,dc=org
+dn: uid=SVC-001,ou=Alternative Accounts,ou=People,dc=Dreamcafe,dc=Org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Service Account 001
+sn: 001
+uid: SVC-001
+userPassword: password
+
+dn: cn=Admin,ou=EQD,ou=Applications,ou=Groups,dc=Dreamcafe,dc=Org
 objectclass: top
 objectclass: groupOfNames
-cn: admin
-member: uid=000001,ou=people,dc=dreamcafe,dc=org
+cn: Admin
+member: uid=000001,ou=People,dc=Dreamcafe,dc=Org
+
+dn: cn=User,ou=EQD,ou=Applications,ou=Groups,dc=Dreamcafe,dc=Org
+objectclass: top
+objectclass: groupOfNames
+cn: User
+member: uid=000001,ou=People,dc=Dreamcafe,dc=Org;uid=000002,ou=People,dc=Dreamcafe,dc=Org;uid=000003,ou=People,dc=Dreamcafe,dc=Org

@@ -1,6 +1,7 @@
 package org.dreamcafe.sljc.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.ldap.core.LdapTemplate;
@@ -8,6 +9,7 @@ import org.springframework.ldap.core.support.LdapContextSource;
 
 @Configuration
 @PropertySource("classpath:/application.properties")
+@ComponentScan(basePackages = {"org.dreamcafe.sljc.server"})
 public class LdapConfig {
     @Bean
     public LdapProperties ldapProperties() {

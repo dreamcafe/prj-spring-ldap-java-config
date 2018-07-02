@@ -4,4 +4,5 @@ log
 **/.idea/tasks.xml
 **/*.iml
 **/.idea/libraries/**
+**/.idea/vcs.xml
 
